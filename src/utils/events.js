@@ -1,7 +1,7 @@
-var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
-  unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
-  prefix = bind !== 'addEventListener' ? 'on' : '',
-  toArray = require('./to-array')
+const bind = window.addEventListener ? 'addEventListener' : 'attachEvent'
+const unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent'
+const prefix = bind !== 'addEventListener' ? 'on' : ''
+const toArray = require('./to-array')
 
 /**
  * Bind `el` event `type` to `fn`.
@@ -14,9 +14,9 @@ var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
  */
 
 exports.bind = function (el, type, fn, capture) {
-  el = toArray(el)
-  for (var i = 0, il = el.length; i < il; i++) {
-    el[i][bind](prefix + type, fn, capture || false)
+  const elements = toArray(el)
+  for (let i = 0, il = elements.length; i < il; i++) {
+    elements[i][bind](prefix + type, fn, capture || false)
   }
 }
 
@@ -31,9 +31,9 @@ exports.bind = function (el, type, fn, capture) {
  */
 
 exports.unbind = function (el, type, fn, capture) {
-  el = toArray(el)
-  for (var i = 0, il = el.length; i < il; i++) {
-    el[i][unbind](prefix + type, fn, capture || false)
+  const elements = toArray(el)
+  for (let i = 0, il = elements.length; i < il; i++) {
+    elements[i][unbind](prefix + type, fn, capture || false)
   }
 }
 
@@ -50,16 +50,16 @@ exports.unbind = function (el, type, fn, capture) {
  */
 
 exports.debounce = function (fn, wait, immediate) {
-  var timeout
+  let timeout
   return wait
     ? function () {
-        var context = this,
-          args = arguments
-        var later = function () {
+        const context = this
+        const args = arguments
+        const later = function () {
           timeout = null
           if (!immediate) fn.apply(context, args)
         }
-        var callNow = immediate && !timeout
+        const callNow = immediate && !timeout
         clearTimeout(timeout)
         timeout = setTimeout(later, wait)
         if (callNow) fn.apply(context, args)

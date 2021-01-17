@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "extends": [
+    "@webpack-contrib/eslint-config-webpack",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["list", "item"] }
+    ],
+    "global-require": "off",
+    "func-names": "off",
+    "no-bitwise": "off",
+    "no-undefined": "off",
+    "no-plusplus": "off",
+    "prefer-destructuring": "off",
+    "prefer-rest-params": "off"
+  },
+  "env": {
+    "browser": true
+  }
+}
