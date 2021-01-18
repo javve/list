@@ -23,7 +23,7 @@
     "url": "https://github.com/javve/list.js/issues"
   },
   "dependencies": {
-    "string-natural-compare": "^2.0.2"
+    "string-natural-compare": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
@@ -42,6 +42,7 @@
   "scripts": {
     "test": "npx jest",
     "build": "npx webpack",
+    "format": "prettier --write \"src/**/*.js\"",
     "watch": "npx webpack --watch",
     "watch-test": "npx jest --watch",
     "preversion": "npm test && npm run build && cp dist/list.min.js docs/assets/javascripts/list.min.js && cp dist/list.min.js.map docs/assets/javascripts/list.min.js.map && git add dist && git add docs/assets/javascripts",
